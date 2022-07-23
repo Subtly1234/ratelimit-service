@@ -48,4 +48,6 @@ spec:
       protocol: TCP
       port: 8081
       targetPort: 8081
+  externalIPs:
+    - 121.37.67.63
 
