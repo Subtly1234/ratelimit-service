@@ -20,6 +20,7 @@ spec:
       labels:
         app: ratelimit-service
     spec:
+      hostNetwork: true
       containers:
         - image: harbor.edu.cn/nju07/ratelimit-service:{VERSION}
           name: ratelimit-service
@@ -48,6 +49,4 @@ spec:
       protocol: TCP
       port: 8081
       targetPort: 8081
-  externalIPs:
-    - 121.37.67.63
 
