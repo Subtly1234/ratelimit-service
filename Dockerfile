@@ -19,4 +19,4 @@ ENTRYPOINT ["sh", "-c", "set -e && java -XX:+PrintFlagsFinal \
                                            -XX:HeapDumpPath=/heapdump/heapdump.hprof \
                                            -XX:+UnlockExperimentalVMOptions \
                                            -XX:+UseCGroupMemoryLimitForHeap \
-                                           $JAVA_OPTS -jar prometheus-test-demo-0.0.1-SNAPSHOT.jar"]
+                                           $JAVA_OPTS -jar ratelimit-service-0.0.1-SNAPSHOT.jar"]

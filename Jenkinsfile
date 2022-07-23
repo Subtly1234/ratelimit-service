@@ -66,6 +66,7 @@ node('slave') {
 		stage('Deploy') {
 			echo "7. Deploy To K8s Stage"
 			sh 'kubectl apply -f ./jenkins/scripts/ratelimit-service.yaml -n nju07'
+// 			sh 'kubectl apply -f ./jenkins/scripts/ratelimit-serviceMonitor.yaml'
 		}
 	}
 }
