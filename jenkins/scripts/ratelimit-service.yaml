@@ -20,12 +20,16 @@ spec:
       labels:
         app: ratelimit-service
     spec:
-      hostNetwork: true
       containers:
         - image: harbor.edu.cn/nju07/ratelimit-service:{VERSION}
           name: ratelimit-service
       imagePullSecrets:
         - name: nju07
+      env:
+        - name: MY_NODE_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
 ---
 apiVersion: v1
 kind: Service
