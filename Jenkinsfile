@@ -7,7 +7,7 @@ pipeline {
 			}
 			steps {
 				echo "1.Git Clone Code"
-				git url: "https://github.com/Subtly1234/CloudNativeRateLimitProject.git"
+				git url: "https://github.com/Subtly1234/ratelimit-service.git"
 			}
 		}
 
@@ -53,7 +53,7 @@ node('slave') {
 	container('jnlp-kubectl') {
 		stage('Clone YAML') {
 			echo "5. Git Clone YAML To Slave"
-			git url: "https://github.com/Subtly1234/CloudNativeRateLimitProject.git"
+			git url: "https://github.com/Subtly1234/ratelimit-service.git"
 		}
 
 		stage('YAML') {
