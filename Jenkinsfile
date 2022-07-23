@@ -32,7 +32,7 @@ pipeline {
 			steps {
 				echo "3.Image Build Stage"
 				sh 'docker build -f Dockerfile --build-arg jar_name=target/ratelimit-service-0.0.1-SNAPSHOT.jar -t ratelimit-service:${BUILD_ID} . '
-				sh 'docker tag ratelimit-service:${BUILD_ID} harbor.edu.cn/library/ratelimit-service:${BUILD_ID}'
+				sh 'docker tag ratelimit-service:${BUILD_ID} harbor.edu.cn/nju07/ratelimit-service:${BUILD_ID}'
 			}
 		}
 

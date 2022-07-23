@@ -39,7 +39,7 @@ spec:
     app: ratelimit-service
   ports:
     - name: tcp
-      nodePort: 40000
+      nodePort: 30003
       protocol: TCP
       port: 8080
       targetPort: 8080
