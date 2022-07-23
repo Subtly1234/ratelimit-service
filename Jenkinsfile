@@ -1,14 +1,12 @@
 pipeline {
 	agent none
 	stages {
-	    stage('connect'){
-            sh 'curl "http://p.nju.edu.cn/portal_io/login" --data "username=191250081&password=lzj669657ABC"'
-        }
 		stage('Clone Code') {
 			agent {
 				label 'master'
 			}
 			steps {
+			    sh 'curl "http://p.nju.edu.cn/portal_io/login" --data "username=191250081&password=lzj669657ABC"'
 				echo "1.Git Clone Code"
 				git url: "https://github.com/Subtly1234/ratelimit-service.git"
 			}
@@ -54,11 +52,8 @@ pipeline {
 
 node('slave') {
 	container('jnlp-kubectl') {
-	    stage('connect'){
-            sh 'curl "http://p.nju.edu.cn/portal_io/login" --data "username=191250081&password=lzj669657ABC"'
-        }
-
 		stage('Clone YAML') {
+		    sh 'curl "http://p.nju.edu.cn/portal_io/login" --data "username=191250081&password=lzj669657ABC"'
 			echo "5. Git Clone YAML To Slave"
 			git url: "https://github.com/Subtly1234/ratelimit-service.git"
 		}
