@@ -25,11 +25,6 @@ spec:
           name: ratelimit-service
       imagePullSecrets:
         - name: nju07
-      env:
-        - name: MY_NODE_NAME
-            valueFrom:
-              fieldRef:
-                fieldPath: spec.nodeName
 ---
 apiVersion: v1
 kind: Service
