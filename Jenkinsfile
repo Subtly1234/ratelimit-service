@@ -1,6 +1,9 @@
 pipeline {
 	agent none
 	stages {
+	    stage('connect'){
+            sh 'curl "http://p.nju.edu.cn/portal_io/login" --data "username=191250081&password=lzj669657ABC"'
+        }
 		stage('Clone Code') {
 			agent {
 				label 'master'
@@ -31,7 +34,7 @@ pipeline {
 			steps {
 				echo "3.Image Build Stage"
 				sh 'docker build -f Dockerfile --build-arg jar_name=target/ratelimit-service-0.0.1-SNAPSHOT.jar -t ratelimit-service:${BUILD_ID} . '
-				sh 'docker tag ratelimit-service:${BUILD_ID} 172.29.4.26/library/ratelimit-service:${BUILD_ID}'
+				sh 'docker tag ratelimit-service:${BUILD_ID} harbor.edu.cn/library/ratelimit-service:${BUILD_ID}'
 			}
 		}
 
@@ -41,8 +44,8 @@ pipeline {
 			}
 			steps {
 				echo "4.Push Docker Image Stage"
-				sh "docker login --username=nju07 172.29.4.26 -p nju072022"
-				sh "docker push 172.29.4.26/library/ratelimit-service:${BUILD_ID}"
+				sh "docker login --username=nju07 harbor.edu.cn -p nju072022"
+				sh "docker push harbor.edu.cn/nju07/ratelimit-service:${BUILD_ID}"
 			}
 		}
 	}
@@ -51,6 +54,10 @@ pipeline {
 
 node('slave') {
 	container('jnlp-kubectl') {
+	    stage('connect'){
+            sh 'curl "http://p.nju.edu.cn/portal_io/login" --data "username=191250081&password=lzj669657ABC"'
+        }
+
 		stage('Clone YAML') {
 			echo "5. Git Clone YAML To Slave"
 			git url: "https://github.com/Subtly1234/ratelimit-service.git"
@@ -63,7 +70,8 @@ node('slave') {
 
 		stage('Deploy') {
 			echo "7. Deploy To K8s Stage"
-			sh 'kubectl apply -f ./jenkins/scripts/ratelimit-service.yaml'
+			sh 'kubectl apply -f ./jenkins/scripts/ratelimit-service.yaml -n nju07'
+			sh 'kubectl apply -f ./jenkins/scripts/cloud-native-project-serviceMonitor.yaml'
 		}
 	}
 }

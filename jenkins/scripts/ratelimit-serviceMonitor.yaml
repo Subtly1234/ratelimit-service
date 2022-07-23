@@ -16,4 +16,4 @@ spec:
       app: ratelimit-service
   namespaceSelector:
     matchNames:
-    - default
+    - nju07
