@@ -15,4 +15,10 @@ public class RateLimitException extends RuntimeException {
     public Integer getCode() {
         return code;
     }
+    public static void main(java.lang.String[] args){
+
+        String c=new String("AB");
+        String d=new String("AB");
+        System.out.println(c==d);
+    }
 }

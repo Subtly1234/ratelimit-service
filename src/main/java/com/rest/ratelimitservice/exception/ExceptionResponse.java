@@ -7,6 +7,7 @@ public class ExceptionResponse {
 
     public ExceptionResponse(Integer code, String message) {
         this.message = message;
+
         this.code = code;
     }
 
@@ -23,3 +24,4 @@ public class ExceptionResponse {
     }
 
 }
+
