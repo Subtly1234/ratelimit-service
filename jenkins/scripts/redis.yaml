@@ -17,9 +17,10 @@ spec:
     spec:
       containers:
         - name: redis
-          image: redis
+          image: redis:latest
           ports:
             - containerPort: 6379
+      imagePullPolicy: IfNotPresent
 ---
 apiVersion: v1
 kind: Service
