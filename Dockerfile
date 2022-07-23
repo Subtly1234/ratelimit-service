@@ -10,7 +10,7 @@ WORKDIR /app
 
 ADD /target/ratelimit-service-0.0.1-SNAPSHOT.jar .
 
-#EXPOSE 8081
+EXPOSE 8081
 
 #ENTRYPOINT ["java","-jar","/ratelimit-service-0.0.1-SNAPSHOT.jar"]
 
