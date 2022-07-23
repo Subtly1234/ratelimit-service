@@ -5,6 +5,8 @@ spring:
   redis:
     host: localhost
     port: 6379
+    password: 123456
+    timeout: 5000
 
 management:
   endpoints:
