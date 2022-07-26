@@ -4,8 +4,7 @@ server:
 spring:
   redis:
     database: 0
-    host: redis-service
-    port: 6379
+    url: redis://redis-service
     timeout: 5000
 
 management:
