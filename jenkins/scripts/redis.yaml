@@ -16,7 +16,6 @@ metadata:
   name: redis
   namespace: nju07
 spec:
-  clusterIP: 172.17.0.100
   ports:
     - port: 6379
       targetPort: 6379
