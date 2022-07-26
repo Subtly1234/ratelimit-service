@@ -4,7 +4,7 @@ server:
 spring:
   redis:
     database: 0
-    host: 121.37.67.63
+    host: redis-svc
     port: 6379
     timeout: 5000
 
