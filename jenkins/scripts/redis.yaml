@@ -15,6 +15,7 @@
 #  namespace: nju07
 #subsets:
 #  - addresses:
+##      - ip: 121.37.67.63
 #      - ip: 127.0.0.1
 #    ports:
 #      - port: 6379
@@ -26,6 +27,7 @@ metadata:
   namespace: nju07
 spec:
   type: ExternalName
-  externalName: 121.37.67.63
+  externalName: localhost
+#  externalName: 121.37.67.63
   ports:
     - port: 6379
