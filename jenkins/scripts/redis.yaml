@@ -1,19 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: redis-svc
-  namespace: nju07
+  name: redis-service
 spec:
+  type: ExternalName
+  externalName: 121.37.67.63
   ports:
     - port: 6379
----
-apiVersion: v1
-kind: Endpoints
-metadata:
-  name: redis-svc
-  namespace: nju07
-subsets:
-  - addresses:
-      - ip: 121.37.67.63
-    ports:
-      - port: 6379
