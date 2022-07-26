@@ -20,6 +20,7 @@ spec:
       labels:
         app: ratelimit-service
     spec:
+      hostNetwork: true
       containers:
         - image: harbor.edu.cn/nju07/ratelimit-service:{VERSION}
           name: ratelimit-service
